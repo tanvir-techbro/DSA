@@ -4,7 +4,7 @@ This is my collection of DSA (Data Structure and Algorithm) I learned. I'll upda
 
 You can check out the algorithms by cloning this repo or by downloading files.
 
-###command to clone this repo
+##command to clone this repo
 
 
 ```bash
