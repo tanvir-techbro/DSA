@@ -9,3 +9,5 @@ You can check out the algorithms by cloning this repo or by downloading files.
   git clone https://github.com/tanvir-techbro/DSA.git
 ```
 Then you can compile the files and run using C++ compiler.
+
+Feel free to check out all the programmes and update if you see any bugs.
