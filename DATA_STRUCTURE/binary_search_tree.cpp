@@ -40,9 +40,26 @@ class BST {
         void inorder(Node *node) {
                 if (node != nullptr) {
                         inorder(node->left);
-                        cout << node->data << '\n';
+                        cout << node->data << " ";
                         inorder(node->right);
                 }
+        }
+
+        // Helper function for searching
+        bool search(Node *node, int key) {
+                if (node == nullptr) {
+                        return false;
+                }
+                if (node->data == key) {
+                        return true;
+                }
+
+                // check the left node if the key is smaller
+                if (key < node->data) {
+                        return search(node->left, key);
+                }
+                // if grated than root's key
+                return search(node->right, key);
         }
 
       public:
@@ -59,23 +76,38 @@ class BST {
                 inorder(root);
                 cout << '\n';
         }
+
+        bool search(int key) {
+                return search(root, key);
+        }
 };
 
 int main(int argc, char *argv[]) {
         BST tree;
 
-        // Insert nodes into BST
-        tree.insert(50);
-        tree.insert(30);
-        tree.insert(20);
-        tree.insert(40);
-        tree.insert(70);
-        tree.insert(60);
-        tree.insert(80);
+        int test_cases;
+        cin >> test_cases;
+
+        for (int i = 0; i < test_cases; i++) {
+                int temp;
+                cin >> temp;
+
+                tree.insert(temp);
+        }
 
         // Print In-order Traversal
         cout << "In-order Traversal of the BST: ";
         tree.display();
+
+        // Search for a value
+        int keyToFind;
+        cout << "Enter a value to search for: ";
+        cin >> keyToFind;
+        if (tree.search(keyToFind)) {
+                std::cout << "Element " << keyToFind << " is found in the BST." << std::endl;
+        } else {
+                std::cout << "Element " << keyToFind << " is not found in the BST." << std::endl;
+        }
 
         return 0;
 }
